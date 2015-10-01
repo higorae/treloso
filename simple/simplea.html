@@ -1,0 +1,12 @@
+<div dnd-list="list.data">
+    <article class="card"
+            ng-repeat="item in list.data"
+            dnd-draggable="item"
+            dnd-moved="list.data.splice($index, 1)"
+            dnd-effect-allowed="move"
+            dnd-selected="models.selected = item"
+            ng-class="{'selected': models.selected === item}">
+        <header>{{item.label}}</header>
+        <div class="detail">1/2</div>
+    </article>
+</div>

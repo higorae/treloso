@@ -1,0 +1,42 @@
+<div class="simpleDemo" ng-controller="SimpleDemoController">
+
+    <div class="row">
+        <div class="row">
+            <div dnd-list="models.lists">
+                <section class="list col-md-4" ng-repeat="(listName, list) in models.lists"
+                                            dnd-type="list.type"
+                                            dnd-draggable="list"
+                                            dnd-horizontal-list="true"
+                                            dnd-effect-allowed="move"
+                                            dnd-moved="models.lists.splice($index, 1)">
+                    <header>
+                        List {{listName}}
+                    </header>
+                    <div ng-include="'simple/simplea.html'"></div>
+                    <div>
+                        <a ng-click="addItem($index, list.data)" class="btn btn-primary adicionar-item">Adicionar Item</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div view-source="simple"></div>
+        
+        <div>
+            <a ng-click="addGrupo()" class="btn btn-default">Adicionar Grupo</a>
+        </div>
+        
+    </div>
+    
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Generated Model</h3>
+            </div>
+            <div class="panel-body">
+                <pre class="code">{{modelAsJson}}</pre>
+            </div>
+        </div>
+    </div>
+
+</div>
